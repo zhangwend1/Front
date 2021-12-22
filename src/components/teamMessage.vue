@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{teamName}}队队伍信息
+    {{teamName}}队伍信息
     <br>
     领队：
     <br>
@@ -71,7 +71,7 @@ export default {
     }
   },
   mounted() {
-    this.axios.get("/team/selectTeamById", {
+    axios.get("/team/selectTeamById", {
       params: {
         id: this.$store.state.thisTeam.nowTeamID
       }
@@ -79,20 +79,30 @@ export default {
       this.teamName=response.data.name;
     }).catch(err => {
     })
+    axios.get("/leader/selectByTeam", {
+      params: {
+        teamId: this.$store.state.thisTeam.nowTeamID
+      }
+    }).then(response => {
+      this.leader.name=response.data.name;
+      this.leader.phoneNumber=response.data.phone;
+      this.leader.identityCard=response.data.idNumber;
+    }).catch(err => {
+    })
+    axios.get("/referee/selectByTeam", {
+      params: {
+        teamId: this.$store.state.thisTeam.nowTeamID
+      }
+    }).then(response => {
+      this.umpire.name=response.data.name;
+      this.umpire.phoneNumber=response.data.phone;
+      this.umpire.identityCard=response.data.idNumber;
+    }).catch(err => {
+    })
   },
   methods:{
 
-    getInfo(){
-      let _this = this;
-      axios.get("/team/selectTeamById", {
-        params: {
-          id: this.$store.state.thisTeam.nowTeamID
-        }
-      }).then(response => {
-        this.teamName=response.data.name;
-      }).catch(err => {
-      })
-    }
+
 
   }
 

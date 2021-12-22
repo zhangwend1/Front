@@ -6,7 +6,7 @@ import router from "./router";
 import store from "./state";
 import axios from "axios";
 
-axios.defaults.baseURL = 'http://192.168.10.9:8080';
+axios.defaults.baseURL = 'http://192.168.212.220:8080';
 
 createApp(App)
     .use(router)

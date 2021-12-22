@@ -21,7 +21,7 @@
       </va-sidebar-item>
 
 
-      <va-sidebar-item @click="test()">
+      <va-sidebar-item>
         <router-link active-class="active" to="/Admin/Matches">
           <va-sidebar-item-content>
             <va-sidebar-item-title> 赛事管理</va-sidebar-item-title>
