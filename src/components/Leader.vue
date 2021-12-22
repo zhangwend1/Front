@@ -1,8 +1,8 @@
 <template>
   <div style="margin-left: 10px; margin-bottom: 10px; margin-top: 10px; display: flex">
     <va-popover
-        placement="right"
         message="孙政，张文迪，罗承宗"
+        placement="right"
     >
       <va-button>小组成员</va-button>
     </va-popover>
@@ -28,7 +28,9 @@
         </router-link>
       </va-sidebar-item>
     </va-sidebar>
-    <router-view class="view"></router-view>
+    <div style="margin-left: 5px">
+      <router-view class="view"></router-view>
+    </div>
   </div>
 </template>
 
@@ -37,6 +39,7 @@ import {VaSidebar} from "vuestic-ui";
 import {VaSidebarItem} from "vuestic-ui";
 import {VaSidebarItemContent} from "vuestic-ui";
 import {VaSidebarItemTitle} from "vuestic-ui";
+
 export default {
   name: "Leader",
   components: {
